@@ -1,6 +1,7 @@
-# flutter_cubic
+# Flutter Cubic
 
-Learning to develop a travel app
+Developing a travel android app with Flutter and Cubic state manager provider. 
+Following along this video tutorial https://www.youtube.com/watch?v=x4DydJKVvQk
 
 ## Getting Started
 
