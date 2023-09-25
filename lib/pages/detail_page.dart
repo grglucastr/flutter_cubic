@@ -3,6 +3,7 @@ import 'package:flutter_cubic/misc/AppColors.dart';
 import 'package:flutter_cubic/widgets/app_buttons.dart';
 import 'package:flutter_cubic/widgets/app_large_text.dart';
 import 'package:flutter_cubic/widgets/app_text.dart';
+import 'package:flutter_cubic/widgets/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -105,9 +106,7 @@ class _DetailPageState extends State<DetailPage> {
                               );
                             }),
                           ),
-                          const SizedBox(
-                            width: 10,
-                          ),
+                          const SizedBox(width: 10),
                           AppText(
                             text: "(4.0)",
                             color: AppColors.textColor2,
@@ -120,16 +119,12 @@ class _DetailPageState extends State<DetailPage> {
                         color: Colors.black.withOpacity(0.8),
                         size: 20,
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
+                      const SizedBox(height: 5),
                       AppText(
                         text: "Number of people in your group",
                         color: AppColors.mainTextColor,
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: List.generate(
@@ -151,9 +146,44 @@ class _DetailPageState extends State<DetailPage> {
                           },
                         ),
                       ),
+                      const SizedBox(height: 20),
+                      AppLargeText(
+                        text: "Description",
+                        color: Colors.black.withOpacity(0.8),
+                        size: 20,
+                      ),
+                      const SizedBox(height: 10),
+                      AppText(
+                        text:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat odio id sapien mattis, nec sollicitudin nisl viverra.",
+                        color: AppColors.mainTextColor,
+                      ),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ), // GPM
+              ),
+            ),
+            Positioned(
+              left: 20,
+              right: 20,
+              bottom: 10,
+              child: Row(
+                children: [
+                  AppButtons(
+                    color: AppColors.textColor2,
+                    backgroundColor: Colors.white,
+                    borderColor: AppColors.textColor2,
+                    icon: Icons.favorite_border,
+                    size: 60,
+                  ),
+                  const SizedBox(width: 20,),
+                  const ResponsiveButton(
+                    isResponsive: true,
+                    width: double.maxFinite,
+                    text: "Cair na gandaia agora!",
+                  )
+                ],
               ),
             ),
           ],
