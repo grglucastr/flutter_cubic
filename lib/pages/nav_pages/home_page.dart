@@ -42,6 +42,24 @@ class _HomePageState extends State<HomePage> {
 
           //Tab bar
           const SizedBox(height: 40,),
+          Container(
+            child: TabBar(
+              tabs: [
+                Tab(text: "Places",),
+                Tab(text: "Inspiration",),
+                Tab(text: "Emotions",),
+              ],
+            ),
+          ),
+          Container(
+            child: TabBarView(
+              children: [
+                Text("Hi"),
+                Text("There"),
+                Text("Bye"),
+              ],
+            ),
+          )
 
         ],
       ),
