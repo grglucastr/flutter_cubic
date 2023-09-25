@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubic/misc/AppColors.dart';
 import 'package:flutter_cubic/widgets/app_large_text.dart';
+import 'package:flutter_cubic/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,6 +11,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+
+  final images = {
+    "balloning.png": "Balloning",
+    "hiking.png": "Hiking",
+    "kayaking.png": "Kayaking",
+    "snorkling.png": "Snorkling",
+  };
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -38,7 +47,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
           //Discover
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20),
@@ -47,7 +56,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
           //Tab bar
           const SizedBox(
-            height: 40,
+            height: 10,
           ),
           Container(
             child: Align(
@@ -104,6 +113,66 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 Text("There"),
                 Text("Bye"),
               ],
+            ),
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(
+                  text: "Explore more",
+                  size: 22,
+                ),
+                AppText(
+                  text: "See all",
+                  color: AppColors.textColor1,
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 150,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 20),
+                  child: Column(children: [
+                    Container(
+                      //margin: const EdgeInsets.only(right: 50),
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: DecorationImage(
+                          image: AssetImage("img/${images.keys.elementAt(index)}"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    Container(
+                      child: AppText(
+                        text: images.values.elementAt(index),
+                        color: AppColors.textColor2,
+                      ),
+                    )
+                  ]),
+                );
+              },
             ),
           )
         ],
