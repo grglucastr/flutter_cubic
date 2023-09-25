@@ -65,9 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       const SizedBox(
                         height: 40,
                       ),
-                      const ResponsiveButton(
-                        width: 100,
-                      ),
+                      const ResponsiveButton(width: 100),
                     ],
                   ),
                   Column(
