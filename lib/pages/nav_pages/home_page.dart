@@ -59,7 +59,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 unselectedLabelColor: Colors.grey,
                 isScrollable: true,
                 indicatorSize: TabBarIndicatorSize.label,
-                indicator: CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+                indicator:
+                    CircleTabIndicator(color: AppColors.mainColor, radius: 4),
                 tabs: [
                   Tab(
                     text: "Places",
@@ -75,12 +76,31 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           Container(
+            padding: const EdgeInsets.only(left: 20),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(
               controller: _tabController,
               children: [
-                Text("Hi"),
+                ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: const EdgeInsets.only(right: 15, top: 10),
+                      width: 200,
+                      height: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: const DecorationImage(
+                          image: AssetImage("img/mountain.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ),
                 Text("There"),
                 Text("Bye"),
               ],
@@ -118,14 +138,14 @@ class _CirclePainter extends BoxPainter {
   });
 
   @override
-  void paint(Canvas canvas, Offset offset,
-      ImageConfiguration configuration) {
-
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final Paint _paint = Paint();
     _paint.color = color;
     _paint.isAntiAlias = true; // for hardware acceleration purpose
 
-    final Offset circleOffset = Offset(configuration.size!.width/2 - radius/2, configuration.size!.height - radius);
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2,
+        configuration.size!.height - radius);
 
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
