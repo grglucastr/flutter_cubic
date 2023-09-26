@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_cubic/model/data_model.dart';
 
 abstract class CubitStates extends Equatable {}
 
@@ -20,8 +21,12 @@ class HomeState extends CubitStates{
 }
 
 class DetailState extends CubitStates {
+
+  final DataModel place;
+  DetailState(this.place);
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [place];
 }
 
 class LoadingState extends CubitStates{
@@ -31,7 +36,7 @@ class LoadingState extends CubitStates{
 
 class LoadedState extends CubitStates{
 
-  late final places;
+  final List<DataModel> places;
   LoadedState(this.places);
 
   @override
