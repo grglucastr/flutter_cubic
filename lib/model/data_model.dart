@@ -1,7 +1,7 @@
 class DataModel {
   String name;
   String img;
-  double price;
+  int price;
   int people;
   int stars;
   String description;
